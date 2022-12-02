@@ -7,7 +7,7 @@ import PageContainer from './PageContainer';
 //onboarding images
 const onboarding1 = require('../../../assets/onboarding1.jpg');
 const onboarding2 = require('../../../assets/onboarding2.jpg');
-const onboarding3 = require('../../../assets/onboarding3.jpg');
+const onboarding3 = require('../../../assets/onboarding3.jpeg');
 
 export default function OnBoarding() {
     const [page, setPage] = useState(1);
