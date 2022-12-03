@@ -7,6 +7,7 @@ import OutlineButton from "./buttons/OutlineButton";
 //inputs
 import AuthInput from "./inputs/AuthInput";
 import PasswordInput from "./inputs/PasswordInput";
+import Select from "./inputs/Select";
 
 export {
     Logo,
@@ -15,5 +16,6 @@ export {
     OutlineButton,
 
     AuthInput,
-    PasswordInput
+    PasswordInput,
+    Select
 }

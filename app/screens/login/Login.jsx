@@ -41,7 +41,7 @@ export default function Login({navigation}) {
                         </TouchableOpacity>
                         <Text style={styles.header}>LOGIN</Text>
                         <View style={styles.flexBottom}>
-                            <AuthInput label={'EMAIL'} placeholder={'johndoe@email.com'} type='default'/>
+                            <AuthInput label={'EMAIL'} placeholder={'johndoe@email.com'} type='email-address' autoComplete={'email'} />
                             <PasswordInput label={'PASSWORD'} margin={20} />
 
                             <LongButton text={'LOGIN'} mtSpace={50} />

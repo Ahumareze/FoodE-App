@@ -9,14 +9,14 @@ import * as routes from './constants/routes';
 
 
 //screens
-import { OnBoarding, GetStarted, Signup, Login } from './app/screens';
+import { OnBoarding, GetStarted, Signup, Login, AddressSetup } from './app/screens';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator >
+      <Stack.Navigator>
         <Stack.Screen
           name={routes.onboarding}
           component={OnBoarding}
@@ -41,6 +41,13 @@ const App = () => {
         <Stack.Screen
           name={routes.login}
           component={Login}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen
+          name={routes.addressSetup}
+          component={AddressSetup}
           options={{
             headerShown: false
           }}

@@ -1,8 +1,5 @@
-import { KeyboardAvoidingView, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, KeyboardAvoidingView, ScrollView, StatusBar, TouchableOpacity } from 'react-native'
 import React from 'react';
-
-//components
-import { AuthInput, LongButton, PasswordInput } from '../../components';
 
 //icons
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -11,25 +8,18 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import * as colors from '../../../constants/colors';
 import * as fonts from '../../../constants/fonts';
 
-//paths
-import * as routes from '../../../constants/routes';
+//components
+import { AuthInput, LongButton, Select } from '../../components';
 
-export default function Signup({navigation}) {
+
+export default function AddressSetup() {
 
     const back = () => {
-        navigation.push(routes.getStarted)
-    }
 
-    const goToLogin = () => {
-        navigation.navigate(routes.login)
-    };
-
-    const register = () => {
-        navigation.navigate(routes.addressSetup)
     }
 
     return (
-        <SafeAreaView style={styles.container} >
+        <SafeAreaView style={styles.container}>
             <StatusBar
                 barStyle="dark-content"
                 backgroundColor="transparent"
@@ -43,17 +33,22 @@ export default function Signup({navigation}) {
                                 <Icon name='close' size={24} color="#900" />
                             </View>
                         </TouchableOpacity>
-                        <Text style={styles.header}>REGISTER</Text>
+                        <Text style={styles.header}>ADDRESS SETUP</Text>
                         <View style={styles.flexBottom}>
-                            <AuthInput label={'FULL NAME'} placeholder={'John Doe'} type='default' autoComplete={'name'}  />
-                            <AuthInput label={'EMAIL'} placeholder={'johndoe@email.com'} type='email-address' autoComplete={'email'}  margin={20} />
-                            <AuthInput label={'PHONE'} placeholder={'+23456789051'} type='numeric' autoComplete={'tel'}  margin={20}/>
-                            <PasswordInput label={'PASSWORD'} margin={20} />
-
-                            <LongButton onClick={register} text={'REGISTER'} mtSpace={50} />
-
-                            <TouchableOpacity onPress={goToLogin} > 
-                                <Text style={styles.extraText} >Already have an account? <Text style={styles.span} >Login</Text> </Text>
+                            <AuthInput label={'ADDRESS LINE 1'} placeholder='Address' type={'default'} autoComplete={'street-address'} />
+                            <AuthInput label={'ADDRESS LINE 2'} placeholder='Address' type={'default'} autoComplete={'street-address'} margin={20} />
+                            <View style={styles.cityContainer}>
+                                <View style={styles.zipcode}>
+                                    <AuthInput label={'ZIP CODE'} placeholder='000-000' type={'numeric'} autoComplete={'postal-code'} />
+                                </View>
+                                <View style={styles.city}>
+                                    <AuthInput label={'CITY'} placeholder='City' type={'default'} autoComplete={'postal-address-region'} />
+                                </View>
+                            </View>
+                            <Select />
+                            <LongButton text={'ADD ADDRESS'} mtSpace={50} />
+                            <TouchableOpacity>
+                                <Text style={styles.skip} >Skip for now</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -92,13 +87,24 @@ const styles = StyleSheet.create({
     flexBottom: {
         flex: 1,
     },
-    extraText:{
+    cityContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 20
+    },
+    zipcode:{
+        flex: 1,
+        paddingRight: 10
+    },
+    city: {
+        flex: 1,
+        paddingLeft: 10
+    },
+    skip: {
+        fontSize: 15,
+        textAlign: 'center',
         color: colors.secondaryText,
         fontFamily: fonts.poppins_medium,
-        textAlign: 'center',
         marginTop: 30
-    },
-    span:{
-        color: colors.orangeText,
     }
 })
