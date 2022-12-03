@@ -14,14 +14,14 @@ import * as fonts from '../../../constants/fonts';
 //paths
 import * as routes from '../../../constants/routes';
 
-export default function Signup({navigation}) {
+export default function Login({navigation}) {
 
     const back = () => {
         navigation.push(routes.getStarted)
     }
 
-    const goToLogin = () => {
-        navigation.navigate(routes.login)
+    const goToSignup = () => {
+        navigation.navigate(routes.signup)
     }
 
     return (
@@ -39,17 +39,15 @@ export default function Signup({navigation}) {
                                 <Icon name='close' size={24} color="#900" />
                             </View>
                         </TouchableOpacity>
-                        <Text style={styles.header}>REGISTER</Text>
+                        <Text style={styles.header}>LOGIN</Text>
                         <View style={styles.flexBottom}>
-                            <AuthInput label={'FULL NAME'} placeholder={'John Doe'} type='email-address' />
-                            <AuthInput label={'EMAIL'} placeholder={'johndoe@email.com'} type='default' margin={20} />
-                            <AuthInput label={'PHONE'} placeholder={'+23456789051'} type='numeric' margin={20}/>
+                            <AuthInput label={'EMAIL'} placeholder={'johndoe@email.com'} type='default'/>
                             <PasswordInput label={'PASSWORD'} margin={20} />
 
-                            <LongButton text={'REGISTER'} mtSpace={50} />
+                            <LongButton text={'LOGIN'} mtSpace={50} />
 
-                            <TouchableOpacity onPress={goToLogin} > 
-                                <Text style={styles.extraText} >Already have an account? <Text style={styles.span} >Login</Text> </Text>
+                            <TouchableOpacity onPress={goToSignup} > 
+                                <Text style={styles.extraText} >Don't have an account? <Text style={styles.span} >Register</Text> </Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -83,10 +81,11 @@ const styles = StyleSheet.create({
         color: colors.darkText,
         fontFamily: fonts.bebasNunes,
         marginTop: 50,
-        marginBottom: 40
+        marginBottom: 60
     },
     flexBottom: {
         flex: 1,
+        justifyContent: 'flex-end'
     },
     extraText:{
         color: colors.secondaryText,
