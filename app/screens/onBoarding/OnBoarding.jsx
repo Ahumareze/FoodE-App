@@ -17,7 +17,7 @@ export default function OnBoarding({ navigation }) {
 
     const nextHandler = () => {
         if(page === 3){
-            navigation.navigate(routes.getStarted)
+            navigation.navigate(routes.getStarted);
         }else{
             setPage(prev => prev + 1)
         }

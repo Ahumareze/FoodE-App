@@ -7,25 +7,37 @@ import { Logo, LongButton, OutlineButton } from '../../components';
 //constants
 import * as colors from '../../../constants/colors';
 
-export default function GetStarted() {
-  return (
-    <SafeAreaView style={styles.container} >
-        <StatusBar
-            barStyle="dark-content"
-            backgroundColor="transparent"
-            translucent={true}
-        />
-        <View style={styles.main}>
-            <Logo dark />
-            <Text style={styles.lagreText} >GET <Text style={{color: '#2FDBBC'}} >STARTED</Text></Text>
-            <Text style={styles.intro_text} >Get started and enjoy the awesome local foor at your home or workplace</Text>
+//paths
+import * as routes from '../../../constants/routes';
 
-            <View style={styles.buttonsContainer}>
-                <LongButton onClick={() => console.log('')} text={'LOGIN'} mtSpace={0}  />
-                <OutlineButton onClick={() => console.log('')}  text={'REGISTER'} mtSpace={30}  />
+export default function GetStarted({navigation}) {
+
+    const register = () => {
+        navigation.navigate(routes.signup);
+    };
+
+    const login = () => {
+        navigation.navigate(routes.login)
+    }
+
+    return (
+        <SafeAreaView style={styles.container} >
+            <StatusBar
+                barStyle="dark-content"
+                backgroundColor="transparent"
+                translucent={true}
+            />
+            <View style={styles.main}>
+                <Logo dark />
+                <Text style={styles.lagreText} >GET <Text style={{color: '#2FDBBC'}} >STARTED</Text></Text>
+                <Text style={styles.intro_text} >Get started and enjoy the awesome local foor at your home or workplace</Text>
+
+                <View style={styles.buttonsContainer}>
+                    <LongButton onClick={login} text={'LOGIN'} mtSpace={0}  />
+                    <OutlineButton onClick={register}  text={'REGISTER'} mtSpace={30}  />
+                </View>
             </View>
-        </View>
-    </SafeAreaView>
+        </SafeAreaView>
   )
 }
 
