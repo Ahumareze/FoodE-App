@@ -4,7 +4,7 @@ import React from 'react';
 //components
 import { Logo, LongButton } from '../../components';
 
-export default function PageContainer({id, img, onNext}) {
+export default function PageContainer({id, img, onNext, context}) {
 
     let title = <Text style={styles.header1} >AWESOME <Text style={{color: '#2FDBBC'}} >LOCAL</Text> FOOD</Text>;
 
@@ -27,9 +27,9 @@ export default function PageContainer({id, img, onNext}) {
                 </View>
                 <View style={styles.bottomContainer}>
                     {title}
-                    <Text style={styles.intro_text} >Discover delicious food from the amazing restaurants near you</Text>
+                    <Text style={styles.intro_text} >{context}</Text>
 
-                    <LongButton onClick={onNext} />
+                    {id === 3 ? <LongButton onClick={onNext} text={'GET STARTED'} mtSpace={50} /> : <LongButton onClick={onNext} text={'NEXT'} mtSpace={50} />}
                 </View>
             </View>
         </ImageBackground>
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     topContainer: {
         flex: 0.5,
-        paddingTop: 40
+        paddingTop: 20
     },
     bottomContainer: {
         flex: 0.5,
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
         color: '#fff'
     },
     intro_text: {
-        fontSize: 16,
+        fontSize: 15,
         color: '#fff',
         marginTop: 10,
         fontFamily: 'Poppins-Regular'
