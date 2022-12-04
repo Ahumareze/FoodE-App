@@ -8,21 +8,14 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import * as colors from '../../../constants/colors';
 import * as fonts from '../../../constants/fonts';
 
-//paths
-import * as routes from '../../../constants/routes';
-
 //components
 import { AuthInput, LongButton, Select } from '../../components';
 
 
-export default function AddressSetup({navigation}) {
+export default function PaymentSetup() {
 
     const back = () => {
 
-    };
-
-    const next = () => {
-        navigation.navigate(routes.paymentSetup);
     }
 
     return (
@@ -40,21 +33,19 @@ export default function AddressSetup({navigation}) {
                                 <Icon name='close' size={24} color="#900" />
                             </View>
                         </TouchableOpacity>
-                        <Text style={styles.header}>ADDRESS SETUP</Text>
+                        <Text style={styles.header}>PAYMENT SETUP</Text>
                         <View style={styles.flexBottom}>
-                            <AuthInput label={'ADDRESS LINE 1'} placeholder='Address' type={'default'} autoComplete={'street-address'} />
-                            <AuthInput label={'ADDRESS LINE 2'} placeholder='Address' type={'default'} autoComplete={'street-address'} margin={20} />
+                            <AuthInput label={'CARD NUMBER'} placeholder='XXXX-XXXX-XXXX-XXXX' type={'numeric'} autoComplete={'cc-number'} />
                             <View style={styles.cityContainer}>
                                 <View style={styles.zipcode}>
-                                    <AuthInput label={'ZIP CODE'} placeholder='000-000' type={'numeric'} autoComplete={'postal-code'} />
+                                    <AuthInput label={'EXPIRY DATE'} placeholder='MM / YY' type={'numeric'} autoComplete={'cc-exp'} />
                                 </View>
                                 <View style={styles.city}>
-                                    <AuthInput label={'CITY'} placeholder='City' type={'default'} autoComplete={'postal-address-region'} />
+                                    <AuthInput label={'CVV'} placeholder='XXX' type={'numeric'} autoComplete={'cc-csc'} />
                                 </View>
                             </View>
-                            <Select />
-                            <LongButton text={'ADD ADDRESS'} mtSpace={50} />
-                            <TouchableOpacity onPress={next} >
+                            <LongButton text={'ADD CARD NOW'} mtSpace={50} />
+                            <TouchableOpacity>
                                 <Text style={styles.skip} >Skip for now</Text>
                             </TouchableOpacity>
                         </View>
@@ -89,7 +80,7 @@ const styles = StyleSheet.create({
         color: colors.darkText,
         fontFamily: fonts.bebasNunes,
         marginTop: 50,
-        marginBottom: 40
+        marginBottom: 60
     },
     flexBottom: {
         flex: 1,

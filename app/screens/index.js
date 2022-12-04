@@ -6,6 +6,7 @@ import Login from "./login/Login";
 
 //SETUP screens
 import AddressSetup from "./addressSetup/AddressSetup";
+import PaymentSetup from "./paymentSetup/PaymentSetup";
 
 export {
     OnBoarding,
@@ -13,5 +14,6 @@ export {
     Signup,
     Login,
 
-    AddressSetup
+    AddressSetup,
+    PaymentSetup
 }
