@@ -8,6 +8,9 @@ import Login from "./login/Login";
 import AddressSetup from "./addressSetup/AddressSetup";
 import PaymentSetup from "./paymentSetup/PaymentSetup";
 
+//home screens
+import Home from './home/Home';
+
 export {
     OnBoarding,
     GetStarted,
@@ -15,5 +18,7 @@ export {
     Login,
 
     AddressSetup,
-    PaymentSetup
+    PaymentSetup,
+
+    Home
 }
