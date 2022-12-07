@@ -3,6 +3,7 @@ import React from 'react';
 
 //components
 import Header from './components/Header'
+import Banner from './components/Banner';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
             translucent={true}
         />
         <Header />
+        <Banner />
     </SafeAreaView>
   )
 }
