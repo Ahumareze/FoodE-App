@@ -9,6 +9,9 @@ import AuthInput from "./inputs/AuthInput";
 import PasswordInput from "./inputs/PasswordInput";
 import Select from "./inputs/Select";
 
+//food item
+import Food from "./food/Food";
+
 export {
     Logo,
     
@@ -17,5 +20,7 @@ export {
 
     AuthInput,
     PasswordInput,
-    Select
+    Select,
+
+    Food
 }
