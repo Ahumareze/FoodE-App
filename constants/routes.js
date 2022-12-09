@@ -6,7 +6,8 @@ const signup = 'SIGNUP';
 const addressSetup = 'ADDRESSSETUP';
 const paymentSetup = 'PAYMENTSETUP';
 
-const home = 'HOME'
+const home = 'HOME';
+const productDetails = 'PRODUCTDETAILS';
 
 export{
     onboarding,
@@ -17,5 +18,6 @@ export{
     addressSetup,
     paymentSetup,
 
-    home
+    home,
+    productDetails
 }

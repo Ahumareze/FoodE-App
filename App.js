@@ -9,7 +9,16 @@ import * as routes from './constants/routes';
 
 
 //screens
-import { OnBoarding, GetStarted, Signup, Login, AddressSetup, PaymentSetup, Home } from './app/screens';
+import { 
+  OnBoarding, 
+  GetStarted, 
+  Signup, 
+  Login, 
+  AddressSetup, 
+  PaymentSetup, 
+  Home,
+  ProductDetails
+} from './app/screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -59,9 +68,16 @@ const App = () => {
             headerShown: false
           }}
         /> */}
-        <Stack.Screen
+        {/* <Stack.Screen
           name={routes.home}
           component={Home}
+          options={{
+            headerShown: false
+          }}
+        /> */}
+        <Stack.Screen
+          name={routes.productDetails}
+          component={ProductDetails}
           options={{
             headerShown: false
           }}
