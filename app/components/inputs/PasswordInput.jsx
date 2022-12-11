@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react';
 
-//colors
+//constants
 import * as colors from '../../../constants/colors';
 import * as fonts from '../../../constants/fonts';
 

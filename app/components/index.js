@@ -8,6 +8,7 @@ import OutlineButton from "./buttons/OutlineButton";
 import AuthInput from "./inputs/AuthInput";
 import PasswordInput from "./inputs/PasswordInput";
 import Select from "./inputs/Select";
+import SearchInput from "./inputs/SearchInput";
 
 //food item
 import Food from "./food/Food";
@@ -21,6 +22,7 @@ export {
     AuthInput,
     PasswordInput,
     Select,
+    SearchInput,
 
     Food
 }
