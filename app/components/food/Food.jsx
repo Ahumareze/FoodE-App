@@ -23,7 +23,7 @@ export default function Food({initial, data}) {
 
     return (
         <TouchableOpacity style={initial ? styles.initialContainer : styles.container} onPress={selectHandler} >
-            <ImageBackground style={styles.imageContianer} source={{uri: data.image}}  >
+            <ImageBackground style={styles.imageContianer} source={{uri: data.image}}>
                 <View style={styles.imageBackground}>
                     <View style={styles.heartButton} >
                         <Icon name='heart' size={20} color={'#fff'} />
@@ -33,7 +33,7 @@ export default function Food({initial, data}) {
             <View style={styles.bottom} >
                 <Text style={styles.title}>{data.name}</Text>
                 <View style={styles.priceContainer}>
-                    <Text style={styles.price} >₦{data.price}</Text>
+                    <Text style={styles.price} >₦{data.price.toLocaleString()}</Text>
                     <View style={styles.addToCartSection} >
                         <TouchableOpacity>
                             <View style={styles.addToCartButton} >
