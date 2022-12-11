@@ -11,11 +11,17 @@ import * as fonts from '../../../constants/fonts';
 //components
 import { AuthInput, LongButton, Select } from '../../components';
 
+import * as routes from '../../../constants/routes';
 
-export default function PaymentSetup() {
+
+export default function PaymentSetup({navigation}) {
 
     const back = () => {
 
+    };
+    
+    const skip = () => {
+        navigation.navigate(routes.home)
     }
 
     return (
@@ -45,7 +51,7 @@ export default function PaymentSetup() {
                                 </View>
                             </View>
                             <LongButton text={'ADD CARD NOW'} mtSpace={50} />
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={skip}>
                                 <Text style={styles.skip} >Skip for now</Text>
                             </TouchableOpacity>
                         </View>

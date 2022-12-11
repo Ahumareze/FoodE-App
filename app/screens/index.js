@@ -10,7 +10,6 @@ import PaymentSetup from "./paymentSetup/PaymentSetup";
 
 //home screens
 import Home from './home/Home';
-import ProductDetails from "./productDetails/ProductDetails";
 
 export {
     OnBoarding,
@@ -21,6 +20,5 @@ export {
     AddressSetup,
     PaymentSetup,
 
-    Home,
-    ProductDetails
+    Home
 }

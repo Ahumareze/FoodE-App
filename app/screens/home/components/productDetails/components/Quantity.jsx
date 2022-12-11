@@ -2,8 +2,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react';
 
 //constants
-import * as colors from '../../../../constants/colors';
-import * as fonts from '../../../../constants/fonts';
+import * as colors from '../../../../../../constants/colors';
+import * as fonts from '../../../../../../constants/fonts';
 
 //icons
 import Icon from 'react-native-vector-icons/Feather';

@@ -16,8 +16,7 @@ import {
   Login, 
   AddressSetup, 
   PaymentSetup, 
-  Home,
-  ProductDetails
+  Home
 } from './app/screens';
 
 const Stack = createNativeStackNavigator();
@@ -68,16 +67,9 @@ const App = () => {
             headerShown: false
           }}
         /> */}
-        {/* <Stack.Screen
+        <Stack.Screen
           name={routes.home}
           component={Home}
-          options={{
-            headerShown: false
-          }}
-        /> */}
-        <Stack.Screen
-          name={routes.productDetails}
-          component={ProductDetails}
           options={{
             headerShown: false
           }}

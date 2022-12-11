@@ -5,22 +5,22 @@ import React from 'react';
 import * as fonts from '../../../../constants/fonts';
 import * as colors from '../../../../constants/colors';
 
-//image
-import foodimg from '../../../../assets/onboarding1.jpg';
-import foodimg2 from '../../../../assets/onboarding3.jpeg';
-
 //components
 import { Food } from '../../../components';
+import foodData from '../../../data/foodData';
 
 export default function FoodRender() {
     return (
         <View style={styles.container} >
             <Text style={styles.title}>Recommended for you</Text>
-            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} >
-                <Food initial img={foodimg}/>
-                <Food img={foodimg2}/>
-                <Food img={foodimg}/>
-                <Food img={foodimg2}/>
+            <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                {foodData.map((i, idx) => (
+                    <Food 
+                        initial={idx === 0}
+                        data={i}
+                        key={idx}
+                    />
+                ))}
             </ScrollView>
         </View>
     )

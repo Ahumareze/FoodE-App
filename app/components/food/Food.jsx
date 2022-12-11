@@ -1,5 +1,6 @@
 import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 //fonts and colors
 import * as fonts from '../../../constants/fonts';
@@ -9,10 +10,20 @@ import * as colors from '../../../constants/colors';
 import Icon from 'react-native-vector-icons/Feather';
 import Icon2 from 'react-native-vector-icons/FontAwesome';
 
-export default function Food({initial, img}) {
+//slices
+import { updateproduceState } from '../../redux/reducers/productSlice';
+
+export default function Food({initial, data}) {
+    //initialize
+    const dispatch = useDispatch();
+
+    const selectHandler = () => {
+        dispatch(updateproduceState(data))
+    }
+
     return (
-        <View style={initial ? styles.initialContainer : styles.container} >
-            <ImageBackground style={styles.imageContianer} source={img} >
+        <TouchableOpacity style={initial ? styles.initialContainer : styles.container} onPress={selectHandler} >
+            <ImageBackground style={styles.imageContianer} source={{uri: data.image}}  >
                 <View style={styles.imageBackground}>
                     <View style={styles.heartButton} >
                         <Icon name='heart' size={20} color={'#fff'} />
@@ -20,9 +31,9 @@ export default function Food({initial, img}) {
                 </View>
             </ImageBackground>
             <View style={styles.bottom} >
-                <Text style={styles.title}>Itialian Pizza</Text>
+                <Text style={styles.title}>{data.name}</Text>
                 <View style={styles.priceContainer}>
-                    <Text style={styles.price} >₦20,500.00</Text>
+                    <Text style={styles.price} >₦{data.price}</Text>
                     <View style={styles.addToCartSection} >
                         <TouchableOpacity>
                             <View style={styles.addToCartButton} >
@@ -32,7 +43,7 @@ export default function Food({initial, img}) {
                     </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -63,8 +74,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: colors.green,
         borderRadius: 10,
-        overflow: 'hidden',
-        
+        overflow: 'hidden'
     },
     imageBackground: {
         flex: 1,
