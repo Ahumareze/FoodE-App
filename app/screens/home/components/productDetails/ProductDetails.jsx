@@ -33,7 +33,7 @@ export default function ProductDetails({data}) {
     const opacity = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
-        Animated.timing(progress, {toValue: 1, useNativeDriver: false, duration: 400}).start();
+        Animated.timing(progress, {toValue: 0, useNativeDriver: false, duration: 400}).start();
         Animated.timing(opacity, {toValue: 1, duration: 400, useNativeDriver: false}).start()
     }, [])
     
@@ -77,7 +77,9 @@ const styles = StyleSheet.create({
     box: {
         backgroundColor: '#fff',
         position: 'absolute',
-        width: '100%'
+        width: '100%',
+        height: dimensions.height,
+        paddingBottom: 500
     },
     top: {
         height: 350,
@@ -99,7 +101,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     contianer: {
-        padding: 20
+        padding: 20,
+        paddingBottom: 100
     },
     title: {
         fontSize: 26,
