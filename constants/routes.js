@@ -7,7 +7,10 @@ const addressSetup = 'ADDRESSSETUP';
 const paymentSetup = 'PAYMENTSETUP';
 
 const home = 'HOME';
-const productDetails = 'PRODUCTDETAILS';
+const search = 'SEARCH';
+const cart = 'CART';
+const saved = 'SAVED';
+const profile = 'PROFILE';
 
 export{
     onboarding,
@@ -19,5 +22,8 @@ export{
     paymentSetup,
 
     home,
-    productDetails
+    search,
+    cart,
+    saved,
+    profile
 }

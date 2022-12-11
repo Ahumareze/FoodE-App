@@ -8,7 +8,7 @@ import * as colors from '../../../constants/colors';
 
 //icons
 import Icon from 'react-native-vector-icons/Feather';
-import Icon2 from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 //slices
 import { updateproduceState } from '../../redux/reducers/productSlice';
@@ -37,7 +37,7 @@ export default function Food({initial, data}) {
                     <View style={styles.addToCartSection} >
                         <TouchableOpacity>
                             <View style={styles.addToCartButton} >
-                                <Icon2 name='shopping-basket' size={15} color={'#fff'} />
+                                <Ionicons name='ios-cart-outline' size={15} color={'#fff'} />
                             </View>
                         </TouchableOpacity>
                     </View>
