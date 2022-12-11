@@ -28,7 +28,7 @@ export default function Home() {
         <ScrollView>
           <StatusBar
             barStyle="dark-content"
-            backgroundColor="transparent"
+            backgroundColor="#fff"
             translucent={true}
           />
           <Header />

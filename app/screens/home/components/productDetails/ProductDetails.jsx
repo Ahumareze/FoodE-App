@@ -63,7 +63,7 @@ export default function ProductDetails({data}) {
                         <Quantity />
                         <View style={styles.priceContainer}>
                             <Text style={styles.total_title}>SUB TOTAL</Text>
-                            <Text style={styles.total_amount}>₦{data.price}</Text>
+                            <Text style={styles.total_amount}>₦{data.price.toLocaleString()}</Text>
                         </View>
                     </View>
 
