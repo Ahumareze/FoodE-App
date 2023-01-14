@@ -26,17 +26,30 @@ import {
   AddressSetup, 
   PaymentSetup, 
   Home,
+  Restaurant,
   Search,
   Cart,
   Saved,
   Profile
 } from './app/screens';
 
+
+//home stack screens
+const HomeStack = createNativeStackNavigator();
+
+const HomeStackScreens = () => {
+  return(
+    <HomeStack.Navigator>
+      <HomeStack.Screen name='Home' component={Home} options={{headerShown: false}} />
+      <HomeStack.Screen name='Restaurant' component={Restaurant} options={{headerShown: false}} />
+    </HomeStack.Navigator>
+  )
+}
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-
   const authContainer = (
     <Stack.Navigator>
       <Stack.Screen
@@ -93,7 +106,7 @@ const App = () => {
     >
       <Tab.Screen
         name={routes.home}
-        component={Home}
+        component={HomeStackScreens}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
@@ -121,7 +134,7 @@ const App = () => {
           )
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name={routes.saved}
         component={Saved}
         options={{
@@ -130,7 +143,7 @@ const App = () => {
             <Ionicons name='heart-outline' color={color} size={22} />
           )
         }}
-      />
+      /> */}
       <Tab.Screen
         name={routes.profile}
         component={Profile}

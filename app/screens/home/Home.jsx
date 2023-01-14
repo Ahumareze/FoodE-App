@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, Animated } from 'react-native'
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View, Animated, TouchableOpacity } from 'react-native'
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -10,7 +10,7 @@ import RestaurantsRender from './components/RestaurantsRender';
 
 import ProductDetails from './components/productDetails/ProductDetails';
 
-export default function Home() {
+export default function Home({navigation}) {
   const productDetails = useSelector(state => state.productReducer.productDetails);
 
   //naimated styles
@@ -34,7 +34,8 @@ export default function Home() {
           <Header />
           <Banner />
           <FoodRender/>
-          <RestaurantsRender />
+          <RestaurantsRender onClick={e => navigation.navigate('Restaurant', {id: e})} />
+          <FoodRender/>
         </ScrollView>
       </SafeAreaView>
       {productDetails ? <ProductDetails data={productDetails} /> : null}

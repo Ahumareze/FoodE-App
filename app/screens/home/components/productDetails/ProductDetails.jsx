@@ -1,9 +1,10 @@
-import { ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, Animated } from 'react-native'
+import { ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, Animated, Image } from 'react-native'
 import React, { useEffect, useRef  } from 'react';
 import {useDispatch} from 'react-redux';
 
 //image
 import foodimg from '../../../../../assets/onboarding3.jpeg';
+import img_loader from '../../../../../assets/img_loader.png';
 
 //icons
 import Icon from 'react-native-vector-icons/Feather';
@@ -19,6 +20,7 @@ import { LongButton } from '../../../../components';
 
 //slices
 import { updateproduceState } from '../../../../redux/reducers/productSlice';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default function ProductDetails({data}) {
     //initialize
@@ -29,7 +31,7 @@ export default function ProductDetails({data}) {
     };
 
     //naimated styles
-    const progress = useRef(new Animated.Value(dimensions.height)).current;
+    const progress = useRef(new Animated.Value(dimensions ? dimensions.height : 0)).current;
     const opacity = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -45,12 +47,19 @@ export default function ProductDetails({data}) {
                     backgroundColor="transparent"
                     translucent={true}
                 />
-                <ImageBackground style={styles.top} source={{uri: data.image}}  >
-                    <View style={styles.topContainer}>
-                        <TouchableOpacity onPress={back} ><View style={styles.backButton}><Icon name={'chevron-left'} size={20} color={'#fff'} /></View></TouchableOpacity>
-                        <View style={styles.navigations}></View>
+                <View style={styles.mainContainer}>
+                    <View style={styles.mainBackground}>
+                        <Image source={img_loader} style={styles.img_loader} />
                     </View>
-                </ImageBackground>
+                    <ImageBackground style={styles.top} source={{uri: data.image}}>
+                        <LinearGradient colors={['rgba(0,0,0,0.5)', 'rgba(0,0,0,0.3)', 'rgba(0,0,0,0.0)']}>
+                            <View style={styles.topContainer}>
+                                <TouchableOpacity onPress={back} ><View style={styles.backButton}><Icon name={'chevron-left'} size={20} color={'#fff'} /></View></TouchableOpacity>
+                                <View style={styles.navigations}></View>
+                            </View>
+                        </LinearGradient>
+                    </ImageBackground>
+                </View>
                 <View style={styles.contianer} >
                     <Text style={styles.title}>{data.name}</Text>
                     <Text style={styles.restaurant}>{data.restuarant}</Text>
@@ -81,15 +90,31 @@ const styles = StyleSheet.create({
         height: dimensions.height,
         paddingBottom: 500
     },
+    mainContainer: {
+        height: 350,
+        overflow: 'hidden'
+    },
     top: {
         height: 350,
         width: '100%',
-        backgroundColor: '#fafafa'
+        position: 'relative',
+        top: -350
+    },
+    mainBackground: {
+        height: 350,
+        width: '100%',
+        backgroundColor: 'rgba(241, 198, 91, 0.6)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    img_loader: {
+        width: 100,
+        height: 100
     },
     topContainer: {
-        flex: 1,
         padding: 20,
-        paddingTop: 50
+        paddingTop: 50,
     },
     backButton: {
         height: 30,

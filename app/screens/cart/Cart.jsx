@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { FlatList, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
 import React from 'react';
 
 //constants
@@ -14,6 +14,11 @@ import foodData from '../../data/foodData';
 export default function Cart() {
     return (
       <ScrollView style={styles.container}>
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor="#fff"
+          translucent={true}
+        />
         <Text style={styles.title}>Cart</Text>
         <View style={styles.mainContainer}>
           {foodData.map((i, idx) => (

@@ -27,7 +27,7 @@ export default function Header() {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        marginTop: 30,
+        // marginTop: 30,
         flexDirection: 'row',
         paddingTop: 15,
         paddingLeft: 20,

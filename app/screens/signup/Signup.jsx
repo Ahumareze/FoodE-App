@@ -73,6 +73,8 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 30,
         paddingBottom: 0,
+        paddingRight: 15,
+        paddingLeft: 15
     },
     closeButton: {
         height: 30,

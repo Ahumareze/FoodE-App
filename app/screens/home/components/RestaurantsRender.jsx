@@ -14,21 +14,24 @@ import logo2 from '../../../../assets/restaurants/logo2.png';
 import logo3 from '../../../../assets/restaurants/logo3.png';
 import logo4 from '../../../../assets/restaurants/logo4.png';
 
-export default function RestaurantsRender() {
+export default function RestaurantsRender({onClick}) {
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.title}>Restaurants</Text>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} >
-                <Restaurants logo={logo1} initial />
-                <Restaurants logo={logo2} />
-                <Restaurants logo={logo3} />
-                <Restaurants logo={logo4} />
+                <Restaurants logo={logo1} initial onClick={() => onClick(1)} />
+                <Restaurants logo={logo2} onClick={() => onClick(2)} />
+                <Restaurants logo={logo3} onClick={() => onClick(3)} />
+                <Restaurants logo={logo4} onClick={() => onClick(4)} />
             </ScrollView>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+    container: {
+        marginBottom: 10
+    },  
     title: {
         fontSize: 15,
         fontFamily: fonts.bebasNunes,

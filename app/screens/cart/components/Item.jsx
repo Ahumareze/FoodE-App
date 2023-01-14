@@ -14,7 +14,7 @@ export default function Item({data}) {
             <Image style={styles.image} source={{uri: data.image}} />
             <View style={styles.mainContianer}>
                 <Text style={styles.title}>{data.name}</Text>
-                <Text style={styles.amount}>₦ {data.price.toLocaleString()}</Text>
+                <Text style={styles.amount}>₦ {data.price?.toLocaleString()}</Text>
             </View>
             <TouchableOpacity>
                 <View style={styles.deleteButton}><Ionicons name='ios-trash-bin-outline' color={'#fff'} size={15} /></View>

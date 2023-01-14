@@ -1,4 +1,4 @@
-import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -9,6 +9,7 @@ import * as colors from '../../../constants/colors';
 //icons
 import Icon from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import img_loader from '../../../assets/img_loader.png';
 
 //slices
 import { updateproduceState } from '../../redux/reducers/productSlice';
@@ -23,13 +24,12 @@ export default function Food({initial, data}) {
 
     return (
         <TouchableOpacity style={initial ? styles.initialContainer : styles.container} onPress={selectHandler} >
-            <ImageBackground style={styles.imageContianer} source={{uri: data.image}}>
-                <View style={styles.imageBackground}>
-                    <View style={styles.heartButton} >
-                        <Icon name='heart' size={20} color={'#fff'} />
-                    </View>
+            <View style={styles.mainBackground}>
+                <View style={styles.defaultBg}>
+                    <Image source={img_loader} style={styles.img_loader} />
                 </View>
-            </ImageBackground>
+                <ImageBackground style={styles.imageContianer} source={{uri: data.image}} />
+            </View>
             <View style={styles.bottom} >
                 <Text style={styles.title}>{data.name}</Text>
                 <View style={styles.priceContainer}>
@@ -52,36 +52,49 @@ const styles = StyleSheet.create({
         width: 175,
         marginRight: 20,
         borderRadius: 10,
-        elevation: 3,
         backgroundColor: '#fff',
         marginTop: 20,
         marginBottom: 20,
-        // overflow: 'hidden'
     },
     initialContainer: {
         width: 175,
         marginRight: 20,
         marginLeft: 20,
         borderRadius: 10,
-        elevation: 3,
         backgroundColor: '#fff',
         marginTop: 20,
         marginBottom: 20,
-        // overflow: 'hidden'
+    },
+    mainBackground: {
+        height: 160,
+        overflow: 'hidden',
+        borderRadius: 10
+    },
+    defaultBg: {
+        height: 160,
+        backgroundColor: 'rgba(241, 198, 91, 0.6)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    img_loader: {
+        width: 50,
+        height: 50
     },
     imageContianer: {
         height: 160,
         width: '100%',
-        backgroundColor: colors.green,
         borderRadius: 10,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        position: 'relative',
+        top: -160
     },
     imageBackground: {
         flex: 1,
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'flex-end',
-        padding: 12
+        padding: 12,
     },
     heartButton: {
         height: 30,

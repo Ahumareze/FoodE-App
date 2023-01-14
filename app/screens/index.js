@@ -10,6 +10,7 @@ import PaymentSetup from "./paymentSetup/PaymentSetup";
 
 //home screens
 import Home from './home/Home';
+import Restaurant from "./restaurant/Restaurant";
 import Search from "./search/Search";
 import Cart from "./cart/Cart";
 import Saved from "./saved/Saved";
@@ -25,6 +26,7 @@ export {
     PaymentSetup,
 
     Home,
+    Restaurant,
     Search,
     Cart,
     Saved,
