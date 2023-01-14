@@ -4,6 +4,7 @@ import React from 'react';
 //components
 import Top from './components/Top';
 import Details from './components/Details';
+import FoodsContainer from './components/FoodsContainer';
 
 export default function Restaurant({navigation}) {
     return (
@@ -15,6 +16,7 @@ export default function Restaurant({navigation}) {
             />
             <Top back={() => navigation.navigate('Home')} />
             <Details />
+            <FoodsContainer />
         </ScrollView>
     )
 }

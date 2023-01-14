@@ -19,6 +19,8 @@ export default function Details() {
             </View>
             <View style={styles.rightSide}>
                 <Text style={styles.title}>Chicken Republic</Text>
+                <Text style={styles.details_text}>Min Order: ₦1,500</Text>
+                <Text style={styles.details_text}>Delivery fee: ₦600</Text>
             </View>
         </View>
     )
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
         paddingRight: 15,
         paddingLeft: 15,
         display: 'flex',
-        flexDirection: 'row'
+        flexDirection: 'row',
     },
     leftSide: {
         width: 80,
@@ -82,5 +84,12 @@ const styles = StyleSheet.create({
         fontFamily: fonts.bebasNunes,
         color: colors.darkText,
         fontSize: 26
+    },
+    details_text: {
+        fontSize: 14,
+        color: '#000',
+        opacity: 0.7,
+        marginTop: 10,
+        fontFamily: fonts.poppins
     }
 })

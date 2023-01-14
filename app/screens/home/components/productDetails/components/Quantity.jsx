@@ -8,18 +8,18 @@ import * as fonts from '../../../../../../constants/fonts';
 //icons
 import Icon from 'react-native-vector-icons/Feather';
 
-export default function Quantity() {
+export default function Quantity({quantity, add, reduce}) {
     return (
         <View style={styles.quantity}>
             <Text style={styles.title}>Quantity</Text>
             <View style={styles.container}>
                 <View style={styles.number}>
-                    <Text style={styles.number}>1</Text>
+                    <Text style={styles.number}>{quantity}</Text>
                 </View>
                 
                 <View style={styles.buttonsContainer}>
-                    <TouchableOpacity><View style={styles.button}><Icon name='minus' color={colors.inputColor} size={20} /></View></TouchableOpacity>
-                    <TouchableOpacity><View style={styles.button}><Icon name='plus' color={colors.inputColor} size={20} /></View></TouchableOpacity>
+                    <TouchableOpacity onPress={reduce} ><View style={styles.button}><Icon name='minus' color={colors.inputColor} size={20} /></View></TouchableOpacity>
+                    <TouchableOpacity onPress={add}><View style={styles.button}><Icon name='plus' color={colors.inputColor} size={20} /></View></TouchableOpacity>
                 </View>
             </View>
         </View>

@@ -1,5 +1,5 @@
 import { ImageBackground, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View, Animated, Image } from 'react-native'
-import React, { useEffect, useRef  } from 'react';
+import React, { useEffect, useRef, useState  } from 'react';
 import {useDispatch} from 'react-redux';
 
 //image
@@ -7,7 +7,7 @@ import foodimg from '../../../../../assets/onboarding3.jpeg';
 import img_loader from '../../../../../assets/img_loader.png';
 
 //icons
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 //constants
 import * as colors from '../../../../../constants/colors';
@@ -26,8 +26,33 @@ export default function ProductDetails({data}) {
     //initialize
     const dispatch = useDispatch();
 
+    //UI state
+    const [quantity, setQuantity] = useState(1);
+    const [total, setTotal] = useState(data.price);
+
+    useEffect(() => {
+        setTotal(data.price * quantity)
+    }, [quantity])
+    
+    const addQuantity = () => {
+        if(quantity < 10){
+            setQuantity(prev => prev + 1);
+        }
+    };
+
+    const reduceQuantity = () => {
+        if(quantity > 1){
+            setQuantity(prev => prev - 1)
+        }
+    }
+
     const back = () => {
-        dispatch(updateproduceState(null))
+        Animated.timing(progress, {toValue: dimensions.height, useNativeDriver: false, duration: 400}).start();
+        Animated.timing(opacity, {toValue: 0, duration: 400, useNativeDriver: false}).start();
+        
+        setTimeout(() => {
+            dispatch(updateproduceState(null));
+        }, 400)
     };
 
     //naimated styles
@@ -41,7 +66,6 @@ export default function ProductDetails({data}) {
     
     return (
         <Animated.ScrollView style={[styles.box, {top: progress, opacity: opacity}]}>
-            
                 <StatusBar
                     barStyle="light-content"
                     backgroundColor="transparent"
@@ -54,7 +78,7 @@ export default function ProductDetails({data}) {
                     <ImageBackground style={styles.top} source={{uri: data.image}}>
                         <LinearGradient colors={['rgba(0,0,0,0.5)', 'rgba(0,0,0,0.3)', 'rgba(0,0,0,0.0)']}>
                             <View style={styles.topContainer}>
-                                <TouchableOpacity onPress={back} ><View style={styles.backButton}><Icon name={'chevron-left'} size={20} color={'#fff'} /></View></TouchableOpacity>
+                                <TouchableOpacity onPress={back} ><View style={styles.backButton}><Icon name={'close'} size={20} color={'#fff'} /></View></TouchableOpacity>
                                 <View style={styles.navigations}></View>
                             </View>
                         </LinearGradient>
@@ -69,10 +93,10 @@ export default function ProductDetails({data}) {
                     </View>
 
                     <View style={styles.bottomContainer}>
-                        <Quantity />
+                        <Quantity quantity={quantity} add={addQuantity} reduce={reduceQuantity} />
                         <View style={styles.priceContainer}>
                             <Text style={styles.total_title}>SUB TOTAL</Text>
-                            <Text style={styles.total_amount}>₦{data.price.toLocaleString()}</Text>
+                            <Text style={styles.total_amount}>₦{total.toLocaleString()}</Text>
                         </View>
                     </View>
 
